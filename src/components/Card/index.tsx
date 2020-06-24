@@ -1,9 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
-
-import SpiderMan from "../../assets/chars/spider-man.png";
-
-import { thumbnails } from "../../assets/folders";
 
 interface ICharacter {
   name: string;
@@ -14,7 +10,10 @@ interface ICharacter {
 const Card: React.FC<ICharacter> = ({ name, alterEgo, imagePath }) => {
   return (
     <View style={styles.container}>
-      <Image source={thumbnails[imagePath]} style={styles.image} />
+      <Image
+        source={{ uri: `http://192.168.0.18:3333/${imagePath}` }}
+        style={styles.image}
+      />
       <Text style={styles.alterEgo}>{alterEgo}</Text>
       <Text style={styles.name}>{name}</Text>
     </View>

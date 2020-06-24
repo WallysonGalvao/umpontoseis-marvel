@@ -2,8 +2,8 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 23220,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "packagerPid": 13316,
+  "expoServerNgrokUrl": "https://ff-bdd.anonymous.marvelapp.exp.direct",
+  "packagerNgrokUrl": "https://packager.ff-bdd.anonymous.marvelapp.exp.direct",
+  "ngrokPid": 1496
 }

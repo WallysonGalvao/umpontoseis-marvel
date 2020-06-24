@@ -1,26 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import Constants from "expo-constants";
-import { Feather as Icon } from "@expo/vector-icons";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
 import {
   StyleSheet,
   View,
   Text,
   Image,
+  ImageBackground,
   ScrollView,
   TouchableOpacity,
-  ImageBackground,
 } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-
-import { thumbnails, movies } from "../../assets/folders";
+import SkillBar from "../../components/SkillBar";
 
 import Back from "../../assets/icons/back.svg";
 import Age from "../../assets/icons/age.svg";
 import Weight from "../../assets/icons/weight.svg";
 import Height from "../../assets/icons/height.svg";
 import Universe from "../../assets/icons/universe.svg";
-import SkillBar from "../../components/SkillBar";
 
 interface IParams {
   character: {
@@ -60,11 +57,11 @@ const Detail = () => {
 
   return (
     <ImageBackground
-      source={thumbnails[character.imagePath]}
+      source={{ uri: `http://192.168.0.18:3333/${character.imagePath}` }}
       style={styles.container}
     >
       <LinearGradient
-        colors={["transparent", "#000"]}
+        colors={["transparent", "#000", "#000"]}
         style={[
           {
             position: "absolute",
@@ -76,7 +73,7 @@ const Detail = () => {
           styles.container,
         ]}
       ></LinearGradient>
-      <ScrollView style={styles.scrollview}>
+      <ScrollView>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Back />
         </TouchableOpacity>
@@ -117,7 +114,7 @@ const Detail = () => {
           </View>
         </View>
 
-        <View style={styles.biography}>
+        <View>
           <Text style={styles.biographyText}>{character.biography}</Text>
         </View>
 
@@ -150,7 +147,12 @@ const Detail = () => {
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {character.movies.map((movie) => (
               <View key={movie} style={{ marginRight: 10 }}>
-                <Image source={movies[movie]} style={styles.image} />
+                <Image
+                  source={{
+                    uri: `http://192.168.0.18:3333/${movie}`,
+                  }}
+                  style={styles.image}
+                />
               </View>
             ))}
           </ScrollView>
@@ -168,8 +170,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     paddingTop: 20 + Constants.statusBarHeight,
   },
-  scrollview: {},
-  heroContainer: { marginTop: 252 },
+  heroContainer: {
+    marginTop: 252,
+  },
   alterEgo: {
     fontFamily: "gilroy-medium",
     fontSize: 16,
@@ -203,7 +206,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#FFFFFF",
   },
-  biography: {},
   biographyText: {
     fontFamily: "gilroy-medium",
     fontSize: 14,
@@ -220,21 +222,6 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     marginBottom: 15,
   },
-  movies: {
-    marginTop: 15,
-    marginBottom: 15,
-  },
-  cardContainer: {
-    width: 120,
-    height: 210,
-    borderRadius: 15,
-    marginRight: 10,
-  },
-  image: {
-    width: 120,
-    height: 210,
-    borderRadius: 15,
-  },
   abilitiesText: {
     fontFamily: "gilroy-regular",
     fontSize: 12,
@@ -247,5 +234,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignContent: "center",
     alignItems: "center",
+  },
+  movies: {
+    marginTop: 15,
+    marginBottom: 15,
+  },
+  image: {
+    width: 120,
+    height: 210,
+    borderRadius: 15,
   },
 });
