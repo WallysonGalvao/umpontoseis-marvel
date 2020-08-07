@@ -41,6 +41,8 @@
 
 Este é o segundo projeto da **[umpontoseis](https://umpontoseis.com/)** criado de designers para desenvolvedores. A ideia do aplicativo é apresentar personagens do universo Marvel, em uma interface simples, elegante e com alto padrão.
 
+Se você gostou desse projeto é quer saber como implementá-lo, escrevi alguns posts no Medium com o passo a passo da implementação, você pode conferir aqui: [Marvel Heroes — Figma + React](https://medium.com/@wallyson.galvao/implementa%C3%A7%C3%A3o-marvel-heroes-da10e8c3e000)
+
 ## 🎨 Layout
 
 <p align="center">
